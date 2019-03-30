@@ -1,11 +1,11 @@
 package dk.knet.pop.booking.services.rest;
 
-import dk.knet.pop.booking.filters.HibernateFilter;
+//import dk.knet.pop.booking.filters.HibernateFilter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-import java.util.Set;
+//import java.util.Set;
 
 @Slf4j
 @ApplicationPath("/api")

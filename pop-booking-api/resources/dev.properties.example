@@ -1,0 +1,2 @@
+configservice.file_location=C:/my/config/file/location.properties  
+log4j.file_location=C:/my/log/file/location.log

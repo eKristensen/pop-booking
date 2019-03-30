@@ -21,6 +21,8 @@ import dk.knet.pop.booking.utils.DateUtil;
 import dk.knet.pop.booking.viewmodels.ViewBooking;
 import lombok.extern.slf4j.Slf4j;
 
+import static dk.knet.pop.booking.configs.ErrorStrings.*;
+
 @Slf4j
 public class BookingController {
 

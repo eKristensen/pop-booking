@@ -5,10 +5,8 @@ target
 dev.properties
 prod.properties
 log4j.properties
-filters
 config
 .idea/
-WebContent
 *.iml
 *.log
 *.class

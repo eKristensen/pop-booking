@@ -8,7 +8,6 @@ import dk.knet.pop.booking.configs.Configs;
 import dk.knet.pop.booking.database.UserDAO;
 import dk.knet.pop.booking.exceptions.BasicException;
 import dk.knet.pop.booking.exceptions.InvalidArgsException;
-//import dk.knet.pop.booking.filters.SecureEndpoint;
 import dk.knet.pop.booking.models.BookingUser;
 import dk.knet.pop.booking.models.Role;
 import dk.knet.pop.booking.models.knet.KnetUser;
@@ -109,8 +108,4 @@ public class UserController {
 		
 		return existing;
 	}
-/*
-	public Set<SecureEndpoint.Permission> getPermissions(BookingUser user) {
-		return null;
-	}*/
 }

@@ -2,6 +2,7 @@
 build
 .settings
 target
+booking.properties
 dev.properties
 prod.properties
 log4j.properties

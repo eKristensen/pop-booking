@@ -7,7 +7,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>true</failOnMissingWebXml>
-        <jersey2.version>2.27</jersey2.version>
+        <jersey2.version>2.29</jersey2.version>
         <jaxb-api.version>2.3.0</jaxb-api.version>
         <jaxrs.version>2.1</jaxrs.version>
         <hibernate.version>5.2.1.Final</hibernate.version>
@@ -244,7 +244,7 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.6.0</version>
+            <version>0.9.1</version>
         </dependency>
         <dependency>
             <groupId>de.svenkubiak</groupId>
@@ -270,7 +270,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.39</version>
+            <version>8.0.16</version>
         </dependency>
     </dependencies>
 </project>

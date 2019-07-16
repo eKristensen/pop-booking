@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {decorate, observable} from 'mobx';
 import {D} from "../../D";
-import {Button, ControlLabel, FormControl, FormGroup, Modal} from "react-bootstrap";
+import {Button, FormLabel, FormControl, FormGroup, Modal} from "react-bootstrap";
 import UserStore from "../../controllers/UserStore";
 import User from "../../models/User";
 import SecurityStore from "../../controllers/SecurityStore";
@@ -42,16 +42,16 @@ class MyProfile extends Component {
                     {!isLoading &&
                     <form>
                         <FormGroup>
-                            <ControlLabel>{D('Username')}</ControlLabel>
+                            <FormLabel>{D('Username')}</FormLabel>
                             <FormControl.Static>{username}</FormControl.Static>
                         </FormGroup>
                         <FormGroup>
-                            <ControlLabel>{D('Name')}</ControlLabel>
+                            <FormLabel>{D('Name')}</FormLabel>
                             <FormControl type="text" value={name} placeholder={D('Name')}
                                          onChange={(evt) => this.user.name = evt.target.value}/>
                         </FormGroup>
                         <FormGroup>
-                            <ControlLabel>{D('Room number')}</ControlLabel>
+                            <FormLabel>{D('Room number')}</FormLabel>
                             <FormControl.Static>{roomNo}</FormControl.Static>
                            {/* <FormControl type="text" value={roomNo} placeholder={D('Room number')}
                                          onChange={(evt) => this.user.roomNo = evt.target.value}/>*/}

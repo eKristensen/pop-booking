@@ -1,11 +1,8 @@
 import {context} from "../controllers/Context";
 import {D} from '../D';
 import {toast} from 'react-toastify';
+import axios from 'axios';
 
-import superagentPromise from 'superagent-promise';
-import _superagent from 'superagent';
-
-const superagent = superagentPromise(_superagent, global.Promise);
 const BASE_URL = process.env.REACT_APP_API_HOST;
 
 
@@ -26,31 +23,37 @@ const handleErrors = err => {
 
 export class RestClient {
 
-    getUrl(route) {
-        return `${BASE_URL}${route}`;
-    }
-
     _fetch(agent) {
         return agent
             .use(token)
-            .end(handleErrors)
-            .then(getResponseBody);
+            .catch(handleErrors);
     }
 
     GET (route){
-        return this._fetch(superagent.get(this.getUrl(route)));
+            // TODO catch errors
+                // TODO add headers
+                return axios.get(route);
+        /*
+        const req = axios.create({
+                method: 'get',
+                baseURL: BASE_URL,
+                url: route,
+                // TODO add headers
+            })
+            // TODO catch errors
+        return req.promise;*/
     }
 
     POST(route, body) {
-        return this._fetch(superagent.post(this.getUrl(route), body));
+        return this._fetch(axios.post(this.getUrl(route), body));
     }
 
     PUT(route, body) {
-        return this._fetch(superagent.put(this.getUrl(route), body));
+        return this._fetch(axios.put(this.getUrl(route), body));
     }
 
     DELETE(route) {
-        return this._fetch(superagent.del(this.getUrl(route)));
+        return this._fetch(axios.del(this.getUrl(route)));
     }
 }
 

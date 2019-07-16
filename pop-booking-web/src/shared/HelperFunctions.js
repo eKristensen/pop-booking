@@ -8,9 +8,8 @@ class HelperFunctions {
         this.formatDate = this.formatDate.bind(this);
     }
     formatDate(date, format) {
-        var dateFormat = require('dateformat');
-        if(format) return dateFormat(date, format, true);
-        return dateFormat(date, "mmmm dS, yyyy, H:MM", true);
+        // TODO format date
+        return new Intl.DateTimeFormat('en-GB').format(date);
     }
     getDateAsStringAndFormat(date) {
         return this.formatDate(date, "mmmm dS, yyyy, H:MM");
@@ -49,7 +48,7 @@ class HelperFunctions {
 
     /**
      * Strips date object to only contain year, month and day
-     * @param {*date object} datetime 
+     * @param {*date object} datetime
      */
     getDateFromDateTime(datetime) {
         var t = datetime.getTime();
@@ -59,7 +58,7 @@ class HelperFunctions {
 
     /**
      * get time (hours and minutes in seconds) from date object
-     * @param {*} datetime 
+     * @param {*} datetime
      */
     getTimeFromMoment(moment) {
         if(!moment) return 0;
@@ -73,7 +72,8 @@ class HelperFunctions {
 
 
     sortTable(tableId, n) {
-        if (event) event.preventDefault();
+        // TODO : Prevent defailt again
+        //if (event) event.preventDefault();
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
         table = document.getElementById(tableId);
         if (!table) return;

@@ -1,6 +1,8 @@
 # Booking system for P. O. Pedersen Kollegiet
 
-Created by Runi and updated and maintained by Emil Kristensen
+** THIS REPO CONTAINS HALF FINISHED, HALF UPDATED INSECURE CODE. PLEASE DO NOT USE! **
+
+Created by Runi.
 
 # Frontend todo:
 

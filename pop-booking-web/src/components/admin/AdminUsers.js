@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {decorate, extendObservable, action, observable, autorun} from 'mobx';
 import UserStore from "../../controllers/UserStore";
-import {BootstrapTable, SearchField, TableHeaderColumn} from 'react-bootstrap-table';
+import {BootstrapTable, SearchField, TableHeaderColumn} from 'react-bootstrap-table-next';
 import {D} from "../../D";
-import {Button, ButtonGroup, Glyphicon} from "react-bootstrap";
+import {Glyphicon} from "glyphicons";
+import {Button, ButtonGroup} from "react-bootstrap";
 import EditUser from "./EditUser";
 
 class AdminUsers extends Component {

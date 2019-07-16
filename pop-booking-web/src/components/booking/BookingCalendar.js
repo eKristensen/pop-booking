@@ -9,7 +9,7 @@ import CreateBooking from "./CreateBooking";
 import EditBooking from "./EditBooking";
 import {D} from '../../D';
 import {toast} from 'react-toastify';
-import {Glyphicon} from "react-bootstrap";
+import {Glyphicon} from "glyphicons";
 import FloatingBtn from "../shared/FloatingBtn";
 import ViewBooking from "./ViewBooking";
 

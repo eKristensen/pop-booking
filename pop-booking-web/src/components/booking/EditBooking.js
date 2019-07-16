@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {decorate, observable} from 'mobx';
 import Booking from "../../models/Booking";
-import {Button, Col, ControlLabel, FormGroup, FormControl, Modal, Row, Form, Grid} from "react-bootstrap";
+import {Button, Col, FormLabel, FormGroup, FormControl, Modal, Row, Form, Container} from "react-bootstrap";
 import Calendar from "react-calendar";
-import TimePicker from 'react-bootstrap-time-picker';
+//import TimePicker from 'react-bootstrap-time-picker';
 import {D} from '../../D';
 import {toast} from 'react-toastify';
 import BookingStore from "../../controllers/BookingStore";
@@ -98,12 +98,12 @@ class EditBooking extends Component {
                     <Modal.Title>{D('Edit booking')}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Grid fluid>
+                    <Container fluid>
                         <Row>
                             <Col xs={12}>
                                 <Form style={{display: 'inline-block'}}>
                                     <FormGroup>
-                                        <ControlLabel>{D('Unit')}</ControlLabel>{' '}
+                                        <FormLabel>{D('Unit')}</FormLabel>{' '}
                                         <FormControl.Static>{bookableItem.name}</FormControl.Static>
                                     </FormGroup>
                                 </Form>
@@ -112,28 +112,26 @@ class EditBooking extends Component {
                         <Row>
                             <Col xs={12} sm={6}>
                                 <FormGroup>
-                                    <ControlLabel>{D('From')}</ControlLabel>
+                                    <FormLabel>{D('From')}</FormLabel>
                                     <div className="calendar-picker-container">
                                         <Calendar id="edit-from-date-picker" locale={this.props.locale} value={fromDate}
                                                   onChange={this.fromDateChanged}/>
                                     </div>
-                                    <TimePicker format={24} start="10:00" end="21:00" step={this.step} value={fromTime}
-                                                onChange={this.fromTimeChanged} style={{maxWidth: '350px'}}/>
+                                    TODO ADD TIMEPICKER
                                 </FormGroup>
                             </Col>
                             <Col xs={12} sm={6}>
                                 <FormGroup>
-                                    <ControlLabel>{D('To')}</ControlLabel>
+                                    <FormLabel>{D('To')}</FormLabel>
                                     <div className="calendar-picker-container">
                                         <Calendar id="edit-to-date-picker" locale={this.props.locale} value={toDate}
                                                   onChange={this.toDateChanged}/>
                                     </div>
-                                    <TimePicker format={24} start="10:00" end="21:00" step={this.step} value={toTime}
-                                                onChange={this.toTimeChanged} style={{maxWidth: '350px'}}/>
+                                    TODO ADD TIMEPICKER
                                 </FormGroup>
                             </Col>
                         </Row>
-                    </Grid>
+                    </Container>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button bsStyle="danger" onClick={this.deleteBooking}

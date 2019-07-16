@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {decorate, observable} from 'mobx';
 import {D} from "../../D";
-import {Button, Col, ControlLabel, DropdownButton, FormControl, FormGroup, MenuItem, Modal, Row} from "react-bootstrap";
+import {Button, Col, FormLabel, DropdownButton, FormControl, FormGroup, Dropdown, Modal, Row} from "react-bootstrap";
 import {toast} from 'react-toastify';
 import BookableObjectsStore from "../../controllers/BookableObjectsStore";
 import {ChromePicker} from "react-color";
@@ -55,27 +55,27 @@ class AddUnit extends Component {
                         <Row>
                             <Col sm={6}>
                                 <FormGroup>
-                                    <ControlLabel>{D('Name')}</ControlLabel>
+                                    <FormLabel>{D('Name')}</FormLabel>
                                     <FormControl type="text" value={name} onChange={(evt) => this.unit.name = evt.target.value}/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <ControlLabel>{D('Max bookable hours')}</ControlLabel>
+                                    <FormLabel>{D('Max bookable hours')}</FormLabel>
                                     <FormControl type={'number'} value={maxBookableHours}
                                                  onChange={(evt) => this.unit.maxBookableHours = evt.target.value}/>
                                 </FormGroup>
 
                                 <FormGroup>
-                                    <ControlLabel style={{width: '100%'}}>{D('Status')}</ControlLabel>
+                                    <FormLabel style={{width: '100%'}}>{D('Status')}</FormLabel>
                                     <DropdownButton id="select-status" title={D(status)}>
-                                        <MenuItem onSelect={this.setStatus} eventKey="ACTIVE">{D('Active')}</MenuItem>
-                                        <MenuItem onSelect={this.setStatus}
-                                                  eventKey="OUT_OF_ORDER">{D('Out of order')}</MenuItem>
+                                        <Dropdown.Item onSelect={this.setStatus} eventKey="ACTIVE">{D('Active')}</Dropdown.Item>
+                                        <Dropdown.Item onSelect={this.setStatus}
+                                                  eventKey="OUT_OF_ORDER">{D('Out of order')}</Dropdown.Item>
                                     </DropdownButton>
                                 </FormGroup>
                             </Col>
                             <Col sm={6}>
                                 <FormGroup>
-                                    <ControlLabel>{D('Color')}</ControlLabel>
+                                    <FormLabel>{D('Color')}</FormLabel>
                                     <ChromePicker id="color" onChange={this.onColorChanged} color={color} disableAlpha/>
                                 </FormGroup>
                             </Col>

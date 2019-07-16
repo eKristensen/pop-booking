@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Recaptcha from 'react-recaptcha';
-import {Button, ControlLabel, FormControl, FormGroup, Modal} from "react-bootstrap";
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import {Button, FormLabel, FormControl, FormGroup, Modal} from "react-bootstrap";
 import PropTypes from 'prop-types';
 import {decorate, observable} from 'mobx';
 import {observer} from "mobx-react";
@@ -55,28 +55,23 @@ class Login extends Component {
                 </Modal.Header>
                 <Modal.Body>
                     <form>
+                        <GoogleReCaptchaProvider reCaptchaKey="[Your recaptcha key]">
                         <FormGroup>
-                            <ControlLabel>{D('Username')}</ControlLabel>
-                            <FormControl type="text" value={this.username} placeholder={D('Username')}
+                            <FormLabel>{D('Username')}</FormLabel>
+                            <FormControl autoFocus
+                                         type="text" value={this.username} placeholder={D('Username')}
                                          onChange={(evt) => this.username = evt.target.value}/>
                         </FormGroup>
                         <FormGroup>
-                            <ControlLabel>{D('Password')}</ControlLabel>
+                            <FormLabel>{D('Password')}</FormLabel>
                             <FormControl type="password" value={this.password} placeholder={D('Password')}
                                          onChange={(evt) => this.password = evt.target.value}/>
                         </FormGroup>
-                        <Recaptcha key="0"
-                                   sitekey={this.captcha_site_key}
-                                   render="explicit"
-                                   ref={r => this.ref = r}
-                                   verifyCallback={this.onVerifyCaptcha}
-                                   onloadCallback={this.loadCaptcha}
-                                   className="btn btn-default btn-primary"
-                                   value="Log in"/>
                         <FormGroup>
                             {this.props.resetPasswordLink && D('Forgotten password? ')}
                             {this.props.resetPasswordLink && <a target="_blank" href={this.props.resetPasswordLink}>{D('Click to reset password')}</a>}
                         </FormGroup>
+                        </GoogleReCaptchaProvider>,
                     </form>
                 </Modal.Body>
                 <Modal.Footer>

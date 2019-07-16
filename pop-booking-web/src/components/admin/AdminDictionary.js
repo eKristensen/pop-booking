@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {action, decorate, observable} from 'mobx';
-import {BootstrapTable, SearchField, TableHeaderColumn} from 'react-bootstrap-table';
+import {BootstrapTable, SearchField, TableHeaderColumn} from 'react-bootstrap-table-next';
 import {D} from "../../D";
 import LanguageStore from "../../controllers/LanguageStore";
 import {toast} from 'react-toastify';

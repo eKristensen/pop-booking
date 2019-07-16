@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {decorate, extendObservable, observable} from 'mobx';
 import {D} from "../../D";
-import {Button, ControlLabel, FormControl, FormGroup, Modal} from "react-bootstrap";
+import {Button, FormLabel, FormControl, FormGroup, Modal} from "react-bootstrap";
 import User from "../../models/User";
 import UserStore from "../../controllers/UserStore";
 import {Typeahead} from "react-bootstrap-typeahead";
@@ -48,11 +48,11 @@ class EditUser extends Component {
 
                     <form>
                         <FormGroup>
-                            <ControlLabel>{D('Username')}</ControlLabel>
+                            <FormLabel>{D('Username')}</FormLabel>
                             <FormControl.Static>{username}</FormControl.Static>
                         </FormGroup>
                         <FormGroup>
-                            <ControlLabel>{D('Permissions')}</ControlLabel>
+                            <FormLabel>{D('Permissions')}</FormLabel>
                             <Typeahead selected={roles.toJSON()} required multiple clearButton labelKey={(value) => {
                                 return value && D(value);
                             }}
@@ -61,11 +61,11 @@ class EditUser extends Component {
                                        onChange={this.givePermissions}/>
                         </FormGroup>
                         <FormGroup>
-                            <ControlLabel>{D('Name')}</ControlLabel>
+                            <FormLabel>{D('Name')}</FormLabel>
                             <FormControl.Static>{name}</FormControl.Static>
                         </FormGroup>
                         <FormGroup>
-                            <ControlLabel>{D('Room number')}</ControlLabel>
+                            <FormLabel>{D('Room number')}</FormLabel>
                             <FormControl.Static>{roomNo}</FormControl.Static>
                         </FormGroup>
 

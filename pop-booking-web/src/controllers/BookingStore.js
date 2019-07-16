@@ -24,7 +24,9 @@ class BookingStore {
 
     getBookings = (start, end) => {
         this.client.GET(`${this.path}/?start=${start.valueOf()}&end=${end.valueOf()}`)
-            .then(events => this.bookings.replace(events.map(e => new Booking(e, this))));
+            .then(events => null)
+            // TODO FIX THIS
+//            .then(events => this.bookings.replace(events.map(e => new Booking(e, this))));
     }
 
     getById = (id) => {

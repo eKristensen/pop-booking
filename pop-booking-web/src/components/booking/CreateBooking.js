@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {Button, Col, ControlLabel, FormGroup, Grid, Modal, Row} from "react-bootstrap";
+import {Button, Col, FormLabel, FormGroup, Container, Modal, Row} from "react-bootstrap";
 import {Typeahead} from "react-bootstrap-typeahead";
 import {decorate, observable} from 'mobx';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 
-import TimePicker from 'react-bootstrap-time-picker';
+//import TimePicker from 'react-bootstrap-time-picker';
 import Calendar from "react-calendar";
 import {D} from '../../D';
 import {toast} from 'react-toastify';
@@ -99,7 +99,7 @@ class CreateBooking extends Component {
                     <Modal.Title>{D('Create booking')}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Grid fluid>
+                    <Container fluid>
                         <Row>
                             <Col xs={12}>
                                 <Typeahead required multiple clearButton labelKey={(value) => {
@@ -114,7 +114,7 @@ class CreateBooking extends Component {
                         <Row>
                             <Col xs={12}>
                                 <FormGroup>
-                                    <ControlLabel>{`${D('You can only book for a maximum of')} ${maxDuration} ${D('hours')}`}</ControlLabel>
+                                    <FormLabel>{`${D('You can only book for a maximum of')} ${maxDuration} ${D('hours')}`}</FormLabel>
                                 </FormGroup>
                             </Col>
                         </Row>
@@ -122,28 +122,26 @@ class CreateBooking extends Component {
                         <Row>
                             <Col xs={12} sm={6}>
                                 <FormGroup>
-                                    <ControlLabel>{D('From')}</ControlLabel>
+                                    <FormLabel>{D('From')}</FormLabel>
                                     <div className="calendar-picker-container">
                                         <Calendar id="from-date-picker" locale={this.props.locale} value={fromDate}
                                                   onChange={this.fromDateChanged}/>
                                     </div>
-                                    <TimePicker format={24} start="10:00" end="21:00" step={this.step} value={fromTime}
-                                                onChange={this.fromTimeChanged} style={{maxWidth: '350px'}}/>
+                                    TODO ADD TIMEPICKER
                                 </FormGroup>
                             </Col>
                             <Col xs={12} sm={6}>
                                 <FormGroup>
-                                    <ControlLabel>{D('To')}</ControlLabel>
+                                    <FormLabel>{D('To')}</FormLabel>
                                     <div className="calendar-picker-container">
                                         <Calendar id="to-date-picker" locale={this.props.locale} value={toDate} onChange={this.toDateChanged}/>
                                     </div>
-                                    <TimePicker format={24} start="10:00" end="21:00" step={this.step} value={toTime}
-                                                onChange={this.toTimeChanged} style={{maxWidth: '350px'}}/>
+                                    TODO ADD TIMEPICKER
                                 </FormGroup>
                             </Col>
                         </Row>
 
-                    </Grid>
+                    </Container>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button bsStyle="primary" onClick={this.createBooking}

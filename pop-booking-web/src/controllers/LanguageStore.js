@@ -24,9 +24,12 @@ export default class LanguageStore {
         this.client = client;
 
         this.client.GET('/languages').then(
-            action((languages) => {
-                this.languages.replace(languages);
-            }));
+            res => console.log(res)
+            // TODO FIX THIS
+//            action((languages) => {
+  //              this.languages.replace(languages);
+        //    })
+        );
         let dictionary;
         if ((dictionary = localStorage.getItem('dictionary'))) {
             this.updateDictionary(JSON.parse(dictionary));
@@ -122,6 +125,9 @@ export default class LanguageStore {
     }
 
     updateDictionary = (list) => {
+        console.log(list);
+        // TODO FIX THIS
+        /*
         list.forEach(el => {
             let key = `${el.language}#${el.key.toLowerCase()}`;
             this.idMap[key] = el.id;
@@ -129,7 +135,7 @@ export default class LanguageStore {
             //clear any possible records
             delete this.recordedEntriesUnobservedMap[key];
             this.recordedEntriesMap.delete(key);
-        })
+        })*/
     }
 
     getValue(key) {

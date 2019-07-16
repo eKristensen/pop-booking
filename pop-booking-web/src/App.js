@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Grid, MenuItem, Nav, Navbar, NavDropdown, NavItem, Row} from "react-bootstrap";
+import {Col, Container, Dropdown, Nav, Navbar, NavDropdown, NavItem, Row} from "react-bootstrap";
 import {observer} from 'mobx-react';
 import {computed, decorate, action, observable} from "mobx";
 
@@ -16,6 +16,9 @@ import AdminPage from "./components/admin/AdminPage";
 import PropTypes from 'prop-types';
 import {stores} from "./controllers/Context";
 import SecurityStore from "./controllers/SecurityStore";
+import { createBrowserHistory } from 'history'
+
+const history = createBrowserHistory();
 
 class App extends Component {
 
@@ -30,6 +33,8 @@ class App extends Component {
     showMyProfile = false;
 
     constructor(props) {
+        console.log("Got here");
+        console.log(props);
         super(props);
     }
 
@@ -62,53 +67,48 @@ class App extends Component {
         const {language, languages} = stores.language;
         const {user, isLoggedIn, isAdmin} = stores.security;
 
+        console.log("Got here too");
+        console.log(pages.ADMIN)
+
         return (
             <div>
-                <Navbar collapseOnSelect inverse>
-                    <Navbar.Header>
-                        <Navbar.Brand>
-                            POP Booking
-                        </Navbar.Brand>
-                        <Navbar.Toggle/>
-                    </Navbar.Header>
-                    <Navbar.Collapse>
-                        <Nav bsStyle="tabs">
-                            <IndexLinkContainer to='/'>
-                                <NavItem eventKey={pages.HOME}>{D('Home')}</NavItem>
-                            </IndexLinkContainer>
-                            <IndexLinkContainer to={pages.CALENDAR}>
-                                <NavItem eventKey={pages.CALENDAR}>{D('Calendar')}</NavItem>
-                            </IndexLinkContainer>
-                            {isAdmin &&
-                            <IndexLinkContainer to={pages.ADMIN}>
-                                <NavItem eventKey={pages.ADMIN}>{D('Administration')}</NavItem>
-                            </IndexLinkContainer>
-                            }
-                        </Nav>
-                        <Nav pullRight>
-                            {isLoggedIn &&
-                            <NavItem eventKey={pages.PROFILE} onSelect={this.editProfile}>
-                                {user.username}
-                            </NavItem>
-                            }
-                            {!isLoggedIn ?
-                                <NavItem eventKey={pages.LOGIN} onSelect={() => this.showLogin = true}>
-                                    {D('Login')}
-                                </NavItem> :
-                                <NavItem eventKey={pages.LOGIN}
-                                         onSelect={() => stores.security.logout(false)}>{D('Log out')}</NavItem>
-                            }
-                            <NavDropdown eventKey={'language'} title={language} id="language-dropdown">
-                                {languages.map(l => <MenuItem key={l.name}
-                                                              eventKey={'language.' + l.name}
-                                                              onSelect={this.selectLanguage}>{l.displayName}</MenuItem>)}
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
-                <Grid>
+                <Navbar bg="light" expand="lg">
+  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#link">Link</Nav.Link>
+      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
+                <Navbar bg="light" expand="lg">
+  <Navbar.Brand href="#home">POP Booking</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link eventKey={pages.HOME} href="#home">{D('Home')}</Nav.Link>
+      <Nav.Link href="#link">Link</Nav.Link>
+      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
+                <Container>
                     <Row>
-                        <Col xs={12} md={10} mdOffset={1}>
+                        <Col xs={12} md={10} offset={1}>
                             <Route exact path="/" render={() => <Home stores={stores}/>}/>
                             <Route path={pages.CALENDAR} render={() => <BookingCalendar stores={stores}/>}/>
                             {isAdmin && <Route path={`${pages.ADMIN}`} render={() => <AdminPage stores={stores}/>}/>}
@@ -123,7 +123,7 @@ class App extends Component {
                                    store={stores.user}/>
                         }
                     </Row>
-                </Grid>
+                </Container>
                 <ToastContainer position='bottom-right' autoClose={8000}/>
             </div>
         )

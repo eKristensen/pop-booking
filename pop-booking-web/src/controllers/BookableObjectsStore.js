@@ -16,7 +16,9 @@ class BookableObjectsStore {
     getAllBookableItems() {
         return this.client.GET(this.path)
             .then(res => {
-                this.bookableItems = res.map(item => new BookableItem(item))
+                console.log(res);
+                // TODO FIX THIS
+                //this.bookableItems = res.map(item => new BookableItem(item))
             });
     }
 

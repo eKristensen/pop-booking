@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {Glyphicon} from "react-bootstrap";
+import {Glyphicon} from "glyphicons";
 
 class FloatingBtn extends Component {
 

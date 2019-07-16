@@ -1,7 +1,7 @@
 import React from 'react';
 import Helper from '../../shared/HelperFunctions';
 import {D} from '../../D';
-import {Button, Col, ControlLabel, Form, FormGroup, Grid, Modal, Row, FormControl} from "react-bootstrap";
+import {Button, Col, FormLabel, Form, FormGroup, Container, Modal, Row, FormControl} from "react-bootstrap";
 import PropTypes from 'prop-types';
 import Booking from "../../models/Booking";
 
@@ -16,18 +16,18 @@ export default class ViewBooking extends React.Component {
                     <Modal.Title>{D('View booking')}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Grid fluid>
+                    <Container fluid>
                         <Row>
                             <Col xs={12}>
                                 <FormGroup>
-                                    <ControlLabel>{D('Booker')}</ControlLabel>
+                                    <FormLabel>{D('Booker')}</FormLabel>
                                     <FormControl.Static>{`${booker.name || ""} ${booker.roomNo}`}</FormControl.Static>
                                 </FormGroup>
                             </Col>
                             <Col xs={12}>
 
                                 <FormGroup>
-                                    <ControlLabel>{D('Unit')}</ControlLabel>{' '}
+                                    <FormLabel>{D('Unit')}</FormLabel>{' '}
                                     <FormControl.Static>{bookableItem.name}</FormControl.Static>
                                 </FormGroup>
 
@@ -36,18 +36,18 @@ export default class ViewBooking extends React.Component {
                         <Row>
                             <Col xs={12} sm={6}>
                                 <FormGroup>
-                                    <ControlLabel>{D('From')}</ControlLabel>
+                                    <FormLabel>{D('From')}</FormLabel>
                                     <FormControl.Static>{Helper.getDateAndTimeAsString(start)}</FormControl.Static>
                                 </FormGroup>
                             </Col>
                             <Col xs={12} sm={6}>
                                 <FormGroup>
-                                    <ControlLabel>{D('To')}</ControlLabel>
+                                    <FormLabel>{D('To')}</FormLabel>
                                     <FormControl.Static>{Helper.getDateAndTimeAsString(end)}</FormControl.Static>
                                 </FormGroup>
                             </Col>
                         </Row>
-                    </Grid>
+                    </Container>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={onExit}>{D('Close')}</Button>
